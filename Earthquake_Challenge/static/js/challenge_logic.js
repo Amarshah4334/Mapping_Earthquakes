@@ -1,21 +1,21 @@
 // Add console.log to check to see if our code is working.
 console.log("working");
 
-// We create the tile layer that will be the background of our map.
+// We create the first[streets] tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
 	accessToken: API_KEY
 });
 
-// We create the second tile layer that will be the background of our map.
+// We create the second[satellite] tile layer that will be the background of our map.
 let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
 	accessToken: API_KEY
 });
 
-// We create a third tile layer that will be the background of our map.
+// We create a third[dark] tile layer that will be the background of our map.
 let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
@@ -174,12 +174,12 @@ majorEarthquakes.addTo(map);
 // 9. Close the braces and parentheses for the major earthquake data.
 });
 
-// Here we create a legend control object.
+// Create a legend control object.
 let legend = L.control({
   position: "bottomright"
 });
 
-// Then add all the details for the legend
+// Add all the details for the legend
 legend.onAdd = function() {
   let div = L.DomUtil.create("div", "info legend");
 
@@ -193,7 +193,7 @@ legend.onAdd = function() {
     "#ea2c2c"
   ];
 
-// Looping through our intervals to generate a label with a colored square for each interval.
+// Loop through intervals to generate a label with a colored square for each interval.
   for (var i = 0; i < magnitudes.length; i++) {
     console.log(colors[i]);
     div.innerHTML +=
@@ -203,7 +203,7 @@ legend.onAdd = function() {
     return div;
   };
 
-  // Finally, we our legend to the map.
+  // Add legend to the map.
   legend.addTo(map);
 
 
